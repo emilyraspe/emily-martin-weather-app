@@ -7,15 +7,20 @@ import { useState } from "react";
 export default function App() {
   const [activities, setActivities] = useState([]);
   const isGoodWeather = true;
-
+  console.log("act", activities);
   function handleAddActivity(newActivity) {
     setActivities([...activities, { ...newActivity, id: uid() }]);
   }
 
+  const filteredActivities = activities.filter(
+    (activity) => activity.isForGoodWeather === isGoodWeather
+  );
+  console.log(filteredActivities);
+
   return (
     <>
       <Form onAddActivity={handleAddActivity} />
-      <List activities={activities} />
+      <List activities={filteredActivities} />
     </>
   );
 }
