@@ -1,15 +1,16 @@
-import { useState } from "react";
 import "./App.css";
 import Form from "./Form/Form.jsx";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [activities, setActivities] = useState([]);
+
+  const handleAddActivity = (newActivity) => {
+    setActivities([...activities, newActivity]);
+  };
 
   return (
     <>
-      <Form />
+      <Form onAddActivity={handleAddActivity} />
     </>
   );
 }
-
-export default App;
