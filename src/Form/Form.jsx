@@ -1,20 +1,4 @@
-import { useState } from "react";
-
 export default function Form({ onAddActivity }) {
-  const [formData, setFormData] = useState({
-    name: "",
-    isForGoodWeather: false,
-  });
-
-  /*  function handleChange(event) {
-    const { name, value, type, checked } = event.target;
-    const val = type === "checkbox" ? checked : value;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: val,
-    }));
-  } */
-
   function handleSubmit(event) {
     event.preventDefault();
     /* const formData = new FormData(event.target);
@@ -24,9 +8,6 @@ export default function Form({ onAddActivity }) {
       checkbox: event.target.elements.isForGoodWeather.checked,
     };
     console.log(data);
-
-    console.log("event target ", event.target.elements.name);
-    console.log("event target ", event.target.elements.isForGoodWeather);
 
     onAddActivity(data);
 
