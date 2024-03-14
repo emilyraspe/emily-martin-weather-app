@@ -12,6 +12,9 @@ export default function App() {
   function handleAddActivity(newActivity) {
     setActivities([...activities, { ...newActivity, id: uid() }]);
   }
+  function handleDeleteActivity(deleteActivity) {
+    setActivities(activities.filter((activity) => activity !== deleteActivity));
+  }
 
   const filteredActivities = activities.filter(
     (activity) => activity.isForGoodWeather === isGoodWeather
@@ -38,7 +41,11 @@ export default function App() {
         {weather.temperature}
       </h1>
       <Form onAddActivity={handleAddActivity} />
-      <List activities={filteredActivities} isGoodWeather={isGoodWeather} />
+      <List
+        activities={filteredActivities}
+        isGoodWeather={isGoodWeather}
+        onDeleteActivity={handleDeleteActivity}
+      />
     </>
   );
 }
