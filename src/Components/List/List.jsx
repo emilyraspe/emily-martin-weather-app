@@ -1,3 +1,5 @@
+import "./List.css";
+
 export default function List({ activities, isGoodWeather, onDeleteActivity }) {
   console.log("activity", activities);
   return (
@@ -11,8 +13,12 @@ export default function List({ activities, isGoodWeather, onDeleteActivity }) {
         {activities.map((activity, id) => (
           <li key={id}>
             <h3>{activity.name}</h3>
-            <button type="button" onClick={() => onDeleteActivity?.(activity)}>
-              x
+            <button
+              type="button"
+              className="delete-button"
+              onClick={() => onDeleteActivity?.(activity)}
+            >
+              ❌
             </button>
           </li>
         ))}

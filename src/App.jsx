@@ -47,7 +47,7 @@ export default function App() {
     <>
       <h1>
         {weather.condition}
-        {weather.temperature}
+        {weather.temperature}°C
       </h1>
       <Form onAddActivity={handleAddActivity} />
       <List
