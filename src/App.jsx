@@ -56,16 +56,21 @@ export default function App() {
 
   return (
     <>
-      <h1>
-        {weather.condition}
-        {weather.temperature}°C
-      </h1>
-      <Form onAddActivity={handleAddActivity} />
+      <div className="header">
+        <h1 className="icon">{weather.condition}</h1>
+        <h1>
+          {weather.temperature}
+          <span className="small">°C</span>
+        </h1>
+      </div>
+
       <List
         activities={filteredActivities}
         isGoodWeather={isGoodWeather}
         onDeleteActivity={handleDeleteActivity}
       />
+
+      <Form onAddActivity={handleAddActivity} />
     </>
   );
 }
