@@ -3,9 +3,13 @@ import Form from "./Components/Form/Form.jsx";
 import List from "./Components/List/List.jsx";
 import { uid } from "uid";
 import { useEffect, useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function App() {
-  const [activities, setActivities] = useState([]);
+  const [activities, setActivities] = useLocalStorageState("activities", {
+    defaultValue: [],
+  });
+
   const [weather, setWeather] = useState([]);
   const isGoodWeather = weather.isGoodWeather;
 
@@ -23,16 +27,21 @@ export default function App() {
 
   // Function Weather
 
+  /* useEffect(() => { */
+  async function startFetching() {
+    const response = await fetch("https://example-apis.vercel.app/api/weather");
+    const weather = await response.json();
+    setWeather(weather);
+  }
   useEffect(() => {
-    async function startFetching() {
-      const response = await fetch(
-        "https://example-apis.vercel.app/api/weather"
-      );
-      const weather = await response.json();
-      setWeather(weather);
-    }
     startFetching();
+    const intervalId = setInterval(() => {
+      startFetching();
+    }, 5000);
+    return () => clearInterval(intervalId);
   }, []);
+
+  /*   }, []); */
 
   return (
     <>
