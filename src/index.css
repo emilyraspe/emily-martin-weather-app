@@ -18,36 +18,9 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
-  background: #70e1f5; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    #84ccec,
-    #ffd194
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    #84ccec,
-    #ffd194
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.background-badWeather {
-  background-image: linear-gradient(
-    to right top,
-    #adb5bd,
-    #97a1ad,
-    #838e9d,
-    #707a8e,
-    #5f677e,
-    #555c74,
-    #4b5169,
-    #42475f,
-    #3d4158,
-    #373c50,
-    #323649,
-    #2d3142
-  );
+  background: #70e1f5;
+  background: -webkit-linear-gradient(to bottom, #84ccec, #ffd194);
+  background: linear-gradient(to bottom, #84ccec, #ffd194);
 }
 
 .background-goodWeather {
