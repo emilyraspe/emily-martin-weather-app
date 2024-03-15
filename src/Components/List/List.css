@@ -8,6 +8,8 @@ li {
   border-radius: 2px;
   margin-bottom: 15px;
   padding: 5px 25px;
+  animation-duration: 0.75s;
+  animation-name: animate;
 }
 
 li:hover {
@@ -28,4 +30,15 @@ ul {
 
 .delete-button:hover {
   border: 1px solid black;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
 }
