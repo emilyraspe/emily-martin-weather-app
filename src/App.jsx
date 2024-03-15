@@ -39,6 +39,13 @@ export default function App() {
         if (response.ok) {
           const weather = await response.json();
           setWeather(weather);
+          if (weather.isGoodWeather === true) {
+            document.body.style.background =
+              "linear-gradient(45deg,rgba(255, 232, 130, 1) 0%,rgba(139, 216, 255, 1) 100%)";
+          } else {
+            document.body.style.background =
+              "linear-gradient(43deg,rgba(216, 225, 228, 1) 0%,rgba(110, 150, 171, 1) 100%)";
+          }
         } else {
           console.error("Weather data is not found");
         }
