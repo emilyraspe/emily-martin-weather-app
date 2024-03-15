@@ -9,11 +9,11 @@ import useLocalStorageState from "use-local-storage-state";
 export default function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [
-      { id: "1234", name: "Jogging", isForGoodWeather: true },
-      { id: "1233", name: "Beach Volleyball", isForGoodWeather: true },
+      { id: "1234", name: "Jogging 🏃🏼‍♀️", isForGoodWeather: true },
+      { id: "1233", name: "Beach Volleyball 🏐", isForGoodWeather: true },
 
-      { id: "1232", name: "Billiards", isForGoodWeather: false },
-      { id: "1231", name: "Pub crawling", isForGoodWeather: false },
+      { id: "1232", name: "Billiards 🎱", isForGoodWeather: false },
+      { id: "1231", name: "Pub crawling 🍺", isForGoodWeather: false },
     ],
   });
 
