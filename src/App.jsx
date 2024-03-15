@@ -21,6 +21,8 @@ export default function App() {
   }
   function handleDeleteActivity(deleteActivity) {
     setActivities(activities.filter((activity) => activity !== deleteActivity));
+    const inputField = document.querySelector(".input-name");
+    inputField.focus();
   }
 
   const filteredActivities = activities.filter(
