@@ -83,27 +83,32 @@ export default function App() {
           {weather.temperature}
           <span className="small">°C</span>
         </h1>
-        <label htmlFor="location">Choose a location:</label>
-        <select
-          value={selectedLocation}
-          name="location"
-          id="location"
-          onChange={handleLocationChange}
-        >
-          <option value="europe">Europe</option>
-          <option value="sahara">Sahara</option>
-          <option value="arctic">Arctic</option>
-          <option value="rainforest">Rainforest</option>
-        </select>
       </div>
+      <main>
+        <div>
+          <div className="choose-location">
+            <label htmlFor="location">Location:</label>
+            <select
+              value={selectedLocation}
+              name="location"
+              id="location"
+              onChange={handleLocationChange}
+            >
+              <option value="europe">Europe</option>
+              <option value="sahara">Sahara</option>
+              <option value="arctic">Arctic</option>
+              <option value="rainforest">Rainforest</option>
+            </select>
+          </div>
 
-      <List
-        activities={filteredActivities}
-        isGoodWeather={isGoodWeather}
-        onDeleteActivity={handleDeleteActivity}
-      />
-
-      <Form onAddActivity={handleAddActivity} />
+          <List
+            activities={filteredActivities}
+            isGoodWeather={isGoodWeather}
+            onDeleteActivity={handleDeleteActivity}
+          />
+        </div>
+        <Form onAddActivity={handleAddActivity} />
+      </main>
     </>
   );
 }
