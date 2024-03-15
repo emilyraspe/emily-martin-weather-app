@@ -20,6 +20,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 200px;
+  min-height: 100vh;
   margin-bottom: 50px;
   background: linear-gradient(
     45deg,
