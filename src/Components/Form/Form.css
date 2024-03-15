@@ -8,6 +8,7 @@
   margin-top: 40px;
   background-color: #ffffff90;
   border-radius: 2px;
+  max-height: 280px;
 }
 
 .input-name {
@@ -34,4 +35,10 @@
   align-self: center;
   margin-bottom: 10px;
   background: none;
+}
+
+@media (min-width: 1020px) {
+  .form {
+    margin-top: 0px;
+  }
 }

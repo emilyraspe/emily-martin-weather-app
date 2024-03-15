@@ -18,6 +18,15 @@ export default function App() {
   });
 
   const [weather, setWeather] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useLocalStorageState(
+    "location",
+    { defaultValue: ["europe"] }
+  );
+
+  function handleLocationChange(event) {
+    setSelectedLocation(event.target.value);
+  }
+
   const isGoodWeather = weather.isGoodWeather;
 
   function handleAddActivity(newActivity) {
@@ -39,7 +48,7 @@ export default function App() {
     async function startFetching() {
       try {
         const response = await fetch(
-          "https://example-apis.vercel.app/api/weather"
+          `https://example-apis.vercel.app/api/weather/${selectedLocation}`
         );
         if (response.ok) {
           const weather = await response.json();
@@ -64,7 +73,7 @@ export default function App() {
       startFetching();
     }, 5000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [selectedLocation]);
 
   return (
     <>
@@ -75,14 +84,31 @@ export default function App() {
           <span className="small">°C</span>
         </h1>
       </div>
+      <main>
+        <div>
+          <div className="choose-location">
+            <label htmlFor="location">Location:</label>
+            <select
+              value={selectedLocation}
+              name="location"
+              id="location"
+              onChange={handleLocationChange}
+            >
+              <option value="europe">Europe</option>
+              <option value="sahara">Sahara</option>
+              <option value="arctic">Arctic</option>
+              <option value="rainforest">Rainforest</option>
+            </select>
+          </div>
 
-      <List
-        activities={filteredActivities}
-        isGoodWeather={isGoodWeather}
-        onDeleteActivity={handleDeleteActivity}
-      />
-
-      <Form onAddActivity={handleAddActivity} />
+          <List
+            activities={filteredActivities}
+            isGoodWeather={isGoodWeather}
+            onDeleteActivity={handleDeleteActivity}
+          />
+        </div>
+        <Form onAddActivity={handleAddActivity} />
+      </main>
     </>
   );
 }
