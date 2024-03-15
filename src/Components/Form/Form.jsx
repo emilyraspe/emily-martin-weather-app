@@ -30,6 +30,7 @@ export default function Form({ onAddActivity }) {
           id="name"
           name="name"
           placeholder="Write activity here"
+          maxLength="35"
           required
         ></input>
         <div className="checkbox-div">
