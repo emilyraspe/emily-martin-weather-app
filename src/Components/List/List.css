@@ -1,0 +1,31 @@
+li {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  background-color: #ffffff90;
+  border-radius: 2px;
+  margin-bottom: 15px;
+  padding: 5px 25px;
+}
+
+li:hover {
+  background-color: #ffffff;
+}
+
+ul {
+  margin-top: 30px;
+  padding: 0px;
+}
+
+.delete-button {
+  border: none;
+  align-self: flex-end;
+  background: none;
+  border-radius: 100px;
+}
+
+.delete-button:hover {
+  border: 1px solid black;
+}
