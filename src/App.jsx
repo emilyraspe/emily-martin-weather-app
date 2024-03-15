@@ -8,13 +8,17 @@ import useLocalStorageState from "use-local-storage-state";
 
 export default function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
-    defaultValue: [],
+    defaultValue: [
+      { id: "1234", name: "Jogging", isForGoodWeather: true },
+      { id: "1233", name: "Beach Volleyball", isForGoodWeather: true },
+
+      { id: "1232", name: "Billiards", isForGoodWeather: false },
+      { id: "1231", name: "Pub crawling", isForGoodWeather: false },
+    ],
   });
 
   const [weather, setWeather] = useState([]);
   const isGoodWeather = weather.isGoodWeather;
-
-  console.log(isGoodWeather);
 
   function handleAddActivity(newActivity) {
     setActivities([...activities, { ...newActivity, id: uid() }]);
@@ -28,7 +32,6 @@ export default function App() {
   const filteredActivities = activities.filter(
     (activity) => activity.isForGoodWeather === isGoodWeather
   );
-  console.log(filteredActivities);
 
   // Function Weather
 
